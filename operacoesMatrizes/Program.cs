@@ -1,7 +1,7 @@
 ﻿int qtdlinhas = 3, qtdcolunas = 4;
 
-int[,] matriz1 = new int[qtdlinhas, qtdcolunas];
-int[,] matriz2 = new int[qtdlinhas, qtdcolunas];
+float[,] matriz1 = new float[qtdlinhas, qtdcolunas];
+float[,] matriz2 = new float[qtdlinhas, qtdcolunas];
 float[,] matriz3 = new float[qtdlinhas, qtdcolunas];
 
 
@@ -124,7 +124,14 @@ for (int linha = 0; linha < qtdlinhas; linha++)
 {
     for (int coluna = 0; coluna < qtdcolunas; coluna++)
     {
-        matriz3[linha, coluna] = matriz1[linha, coluna] / matriz2[linha, coluna];
+        if (matriz2[linha, coluna] != 0)
+        {
+            matriz3[linha, coluna] = matriz1[linha, coluna] / matriz2[linha, coluna];
+        }
+        else
+        {
+            matriz3[linha, coluna] = float.NaN;
+        }
     }
 }
 
