@@ -1,7 +1,7 @@
-﻿    int qtdlinhas = 0, qtdcolunas = 0;
-    bool trueFalse = true;
+﻿int qtdlinhas = 0, qtdcolunas = 0;
+bool trueFalse = true;
 
-    void tamanhoMatriz()
+void tamanhoMatriz()
     {
         Console.Write("Digite o número de linhas: ");
         qtdlinhas = int.Parse(Console.ReadLine());
@@ -9,14 +9,12 @@
         qtdcolunas = int.Parse(Console.ReadLine());
     }
 
-    tamanhoMatriz();
+tamanhoMatriz();
+float[,] matriz1 = new float[qtdlinhas, qtdcolunas];
+float[,] matriz2 = new float[qtdlinhas, qtdcolunas];
+float[,] matriz3 = new float[qtdlinhas, qtdcolunas];
 
-    float[,] matriz1 = new float[qtdlinhas, qtdcolunas];
-    float[,] matriz2 = new float[qtdlinhas, qtdcolunas];
-    float[,] matriz3 = new float[qtdlinhas, qtdcolunas];
-
-
-    void sortearMatriz(float[,] matriz)
+void sortearMatriz(float[,] matriz)
     {
 
         for (int linha = 0; linha < qtdlinhas; linha++) //Laço da linha
@@ -26,9 +24,9 @@
                 matriz[linha, coluna] = new Random().Next(0, 10);
             }
         }
-    }
-
-    void imprimirMatriz(float[,] matriz, string titulo)
+    imprimirMatriz(matriz, "\n\nMatriz Gerada\n");
+}
+void imprimirMatriz(float[,] matriz, string titulo)
     {
         Console.WriteLine(titulo);
 
@@ -43,9 +41,7 @@
 
         }
     }
-
-
-    void menuSelecao()
+void menuSelecao()
     {
         do
         {
@@ -123,15 +119,8 @@
         } while (trueFalse == false);
     }
 
-//==============================================================================================
+sortearMatriz(matriz1);
+sortearMatriz(matriz2);
+menuSelecao();
 
-    sortearMatriz(matriz1);
-    imprimirMatriz(matriz1, "\nMatriz 1\n");
-
-    sortearMatriz(matriz2);
-    imprimirMatriz(matriz2, "\n\nMatriz 2");
-
-    menuSelecao();
-
-    Console.ReadKey();
-
+Console.ReadKey();
